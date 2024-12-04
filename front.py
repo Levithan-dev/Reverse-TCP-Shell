@@ -3,7 +3,7 @@ import os
 import time
 import colorama as clr
 import threading
-
+#Replace with your ip
 host='192.168.18.170'
 port=1234
 server_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
