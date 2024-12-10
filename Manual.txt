@@ -1,0 +1,61 @@
+Reverse TCP Program Instructions and Notice!
+
+Description
+This reverse TCP program allows a server to connect with a client for remote access. It is free to modify and redistribute as long as credit is given to the original creator, Levithan.
+
+Important Notice: Update the IP Address
+The program uses a default server IP address 192.168.18.170 and Port 1235.
+
+If you do not update the IP and open the port on your machine:
+The program will NOT work.
+The client will fail to connect to the server.
+
+Steps to Change the IP Address
+Open client.py and server.py in a text editor.
+
+Replace the default IP (192.168.18.170) with your server’s (attacker machine's) IP address, Both server.py and client.py will take attackers ip so don't add target ip as its reverse shell.
+
+Find your server IP by running (on attacker machine):
+Windows: ipconfig
+Linux: ifconfig
+If using the compiled version (client.exe), recompile it after making the IP change:
+
+pyinstaller --onefile --noconsole --hidden-import=colorama client.py
+Install pyinstaller if necessary:
+
+
+pip install pyinstaller
+
+OPEANING PORT (on attacker machine)
+Step 1: Open a Port
+Windows:
+
+Open the Start Menu and search for Windows Defender Firewall.
+Open Advanced Settings.
+Go to Inbound Rules > New Rule.
+Select Port, click Next, and enter the port number (1235).
+Allow the connection and save.
+Linux:
+
+Open a terminal.
+Copy code
+sudo ufw allow 1235/tcp
+Step 2: Add Program to Startup Folder
+To ensure the client runs every time the system restarts:
+
+Press Win + R, type shell:startup, and press Enter.(on target machine)
+Copy the client.exe file into the opened folder.
+
+Antivirus Exception (on target machine)
+Add client.exe to your antivirus exceptions list. Otherwise, it may be quarantined or blocked.
+
+How It Works
+The client.exe runs silently in the background.
+If the server is open and the client is active, they will connect automatically.
+Supported Commands (v1.0)
+ls - List files in the directory
+cd - Change directory
+rm - Remove a file
+rmdir - Remove a directory
+Follow these instructions carefully to ensure the program works properly.
+
